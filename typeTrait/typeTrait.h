@@ -1,3 +1,6 @@
+#ifndef __TYPE_TRAIT_H__
+#define __TYPE_TRAIT_H__
+
 namespace Base {
     template <typename T> constexpr bool is_const          = false;
     template <typename T> constexpr bool is_const<T const> = true;
@@ -25,3 +28,5 @@ template <typename T> constexpr bool is_const     = Base::is_const<typename remo
 template <typename T, unsigned long long N = 0> constexpr bool is_array       = false;
 template <typename T, unsigned long long N>     constexpr bool is_array<T[N]> = true;
 template <typename T>                           constexpr bool is_array<T[]>  = true;
+
+#endif
